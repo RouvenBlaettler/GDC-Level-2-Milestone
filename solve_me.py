@@ -78,7 +78,15 @@ $ python tasks.py report # Statistics"""
 
         print(f'Added task: "{" ".join(args[1:])}" with priority {requested_priority}')
     def done(self, args):
-        pass
+        if int(args[0]) not in self.current_items.keys():
+            print(f"Error: no incomplete item with priority {args[0]} exists.")
+        else:
+            completed_task = self.current_items[int(args[0])]
+            self.completed_items.append(completed_task)
+            del self.current_items[int(args[0])]
+            self.write_current()
+            self.write_completed()
+            print("Marked item as done.")
 
     def delete(self, args):
         pass
