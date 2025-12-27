@@ -89,7 +89,13 @@ $ python tasks.py report # Statistics"""
             print("Marked item as done.")
 
     def delete(self, args):
-        pass
+        if int(args[0]) not in self.current_items.keys():
+            print(f"Error: item with priority {args[0]} does not exist. Nothing deleted.")
+        else:
+            del self.current_items[int(args[0])]
+            self.write_current()
+            print(f"Deleted item with priority {args[0]}")
+
 
     def ls(self):
         pass
