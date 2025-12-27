@@ -98,7 +98,9 @@ $ python tasks.py report # Statistics"""
 
 
     def ls(self):
-        pass
+        current_tasks = sorted(self.current_items.items())
+        for index, task in enumerate(current_tasks):
+            print(f"{index+1}. {task[1]} [{task[0]}]")
 
     def report(self):
         pass
