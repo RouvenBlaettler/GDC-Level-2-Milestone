@@ -103,4 +103,8 @@ $ python tasks.py report # Statistics"""
             print(f"{index+1}. {task[1]} [{task[0]}]")
 
     def report(self):
-        pass
+        print(f"Pending : {len(self.current_items)}")
+        self.ls()
+        print(f"\nCompleted : {len(self.completed_items)}")
+        for index, task in enumerate(self.completed_items):
+            print(f"{index+1}. {task}")
